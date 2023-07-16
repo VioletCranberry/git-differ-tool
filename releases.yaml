@@ -1,0 +1,12 @@
+buckets:
+  # both full and short commit SHAs are available for a lookup
+
+  - name: kubectl-node-ssm
+    commits:
+      from_commit: 2c75aac01e337478e5f1c7d6c6d0e6f7e4a03154
+      to_commit: 97d194e447e5befb93a17e9bb8f5dec1a0d75044
+
+  - name: k8s-general
+    commits:
+      from_commit: 5c96e53
+      to_commit: 900237f

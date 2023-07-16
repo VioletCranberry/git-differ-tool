@@ -1,0 +1,34 @@
+globals:
+  - repository_params: &repo_defaults
+      clone_repo_to: "./cache"
+  - parser_params: &parser_defaults
+      # exclude_authors:
+      #  - "Jenkins"
+      #  - "github-actions"
+      #  - "dependabot[bot]"
+      expand_pull_request_refs: true
+      generate_commit_url_refs: true
+      expand_jira_project_refs:
+        enabled: false
+        keys_to_expand:
+        # commits with specific [KEY]: message will include JIRA urls
+          - OPS
+          - TEST
+
+buckets:
+
+  - name: kubectl-node-ssm
+    parser: GitRepoCommitPretty
+    repository_params:
+      path_to_repo: "git@github.com:VioletCranberry/kubectl-node-ssm.git"
+      <<: *repo_defaults
+    parser_params:
+      <<: *parser_defaults
+
+  - name: k8s-general
+    parser: GitRepoCommitPretty
+    repository_params:
+      path_to_repo: "git@github.com:kubernetes/kubernetes.git"
+      <<: *repo_defaults
+    parser_params:
+      <<: *parser_defaults
